@@ -42,9 +42,9 @@
         <li>Due at: {{ task.due_at }}</li>
         {% endif %}
         {% if task.completed %} 
-        <li>Status: Completed</li>
+        <li>Status: <span class="completed">Completed</span></li>
         {% else %}
-        <li>Status: Not Completed</li>
+        <li>Status: <span class="not_completed">Not Completed</span></li>
         {% endif %}
       </ul>
     </div>
