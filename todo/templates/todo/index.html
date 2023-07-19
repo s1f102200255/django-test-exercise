@@ -18,6 +18,10 @@
         <input id="titleInput" name="title" type="text" placeholder="Input title">
       </div>
       <div>
+        <label for="categoryInput">Category</label><br>
+        <input id="categoryInput" name="category" type="text" placeholder="Input category">
+      </div>
+      <div>
         <label for="dueInput">Due at:</label><br>
         <input id="dueInput" name="due_at" type="datetime-local">
       </div>
@@ -34,7 +38,11 @@
 
     {% for task in tasks %}
     <div class="text">
-      <h2><a href="{% url 'detail' task.id %}">{{ task.title }}</a></h2>
+      {% if task.category %}
+      <h2><a href="{% url 'detail' task.id %}">{{ task.title }}</a><span>({{ task.category}})</span></h2>
+      {% else %}
+      <h2><a href="{% url 'detail' task.id %}">{{ task.title }}</a><span>No Category</span></h2>
+      {% endif %}
       <ul>
         <li>Posted at: {{ task.posted_at }}</li>
         {% if task.due_at %} 
