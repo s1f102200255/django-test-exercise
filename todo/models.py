@@ -22,6 +22,7 @@ class Task(models.Model):
     posted_at = models.DateTimeField(default=timezone.now)
     due_at = models.DateTimeField(null=True, blank=True)
     deleted_at = models.DateTimeField(blank=True, null=True) # 削除日時の追加
+    detail = models.CharField(max_length=1000, default="")
 
     objects = SoftDeletionManager() # 使うマネージャー
 
