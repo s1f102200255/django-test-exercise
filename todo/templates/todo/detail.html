@@ -12,6 +12,7 @@
   <body>
     <h1>{{ task.title }}</h1>
     <ul>
+      <li>Detail: {{ task.detail }}</li>
       {% if task.category %}
       <li>Category: {{ task.category }}</li>
       {% else %}

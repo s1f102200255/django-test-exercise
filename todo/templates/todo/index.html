@@ -19,6 +19,10 @@
         <input id="titleInput" name="title" type="text" placeholder="Input title">
       </div>
       <div>
+        <label for="detailInput">Detail</label><br>
+        <input id="detailInput" name="detail" type="text" placeholder="Input detail">
+      </div>
+      <div>
         <label for="categoryInput">Category</label><br>
         <input id="categoryInput" name="category" type="text" placeholder="Input category">
       </div>
@@ -45,6 +49,7 @@
       <h2><a href="{% url 'detail' task.id %}">{{ task.title }}</a><span>No Category</span></h2>
       {% endif %}
       <ul>
+        <li>Detail: {{ task.detail }}</li>
         <li>Posted at: {{ task.posted_at }}</li>
         {% if task.due_at %} 
         <li>Due at: {{ task.due_at }}</li>
