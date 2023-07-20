@@ -7,9 +7,17 @@ class SoftDeletionManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(deleted_at=None)
 
+# カテゴリーモデル
+class Category(models.Model):
+    name = models.CharField(verbose_name="カテゴリ", max_length=100)
+
+    def __str__(self):
+        return self.name
+
 
 class Task(models.Model):
     title = models.CharField(max_length=100)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE,  null=True, blank=True) # カテゴリーキー(外部キー)
     completed = models.BooleanField(default=False)
     posted_at = models.DateTimeField(default=timezone.now)
     due_at = models.DateTimeField(null=True, blank=True)
