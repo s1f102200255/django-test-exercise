@@ -5,3 +5,11 @@ body {
 h1 {
     color: brown;
 }
+
+.completed {
+    color: rgb(31, 184, 31);
+}
+
+.not_completed {
+    color: red;
+}
